@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据绑定</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 如下代码是错误的，因为v-model只能应用在表单类元素（输入类元素）上,只能应用在value属性上 -->
+        <!-- <h3>单向数据绑定<input type="text" v-bind:value="name"></h3>
+        <h3>双向数据绑定<input type="text" v-model:value="name"></h3> -->
+        <h3>单向数据绑定<input type="text" :value="name"></h3>
+        <h3>双向数据绑定<input type="text" v-model="name"></h3>
+
+    </div>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        new Vue({
+            el: '#root',
+            data: {
+                name: 'Jack'
+            }
+        })
+    </script>
+</body>
+
+</html>

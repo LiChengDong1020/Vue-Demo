@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el与data的两种写法</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>Hello,{{name}}</h1>
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+        const v = new Vue({
+            //el第一个写法
+            // el: '#root',
+
+            //data的第一个写法
+            // data: {
+            //     name: 'World'
+            // }
+
+            //data第二个写法 函数式
+            data: function () {
+                //此处this是 Vue的实例对象
+                return {
+                    name: 'World'
+                }
+            }
+            /**
+             * data: () => {
+                //此处this是全局Window
+                return {name: 'World'}
+             * 
+            */
+        })
+        console.log(v)
+        // setTimeout(() => {
+        //     v.$mount('#root')
+        // }, 1000)
+        //el第二个写法 
+        v.$mount('#root')
+
+    </script>
+</body>
+
+</html>
